@@ -1,3 +1,5 @@
+Leetcode- 503
+
 Bruteforce: Iterating through two loops, time-O(n^2) space-O(1)
 
 Optimized solution using stack:
