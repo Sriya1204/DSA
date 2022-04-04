@@ -1,48 +1,87 @@
 problem link:
+
 https://leetcode.com/problems/next-permutation/
 
 Time-O(n)
+
 space-O(1)
+
 Approach:
+
 We start traversing from the last and find the index i such that nums[i]>nums[i-1], i.e;
+
 upto i we have increasing sequence from the end. In this sequence element at index i is largest.
+
 We consider the element at index i-1 and swap it with the element greater than it and break while traversing from the last.
+
 Reverse the array from index i to n, as it is now in ascending order from the last, i.e; descending from first.
 
-
-
 class Solution {
-    private:
-    void reverse(vector<int> &nums,int i,int j)
-    {
-        while(i<=j)
-        {
-            swap(nums[i],nums[j]);
-            i++;
-            j--;
-        }
-    }
+
+    private:
+
+    void reverse(vector<int> &nums,int i,int j)
+
+    {
+
+        while(i<=j)
+
+        {
+
+            swap(nums[i],nums[j]);
+
+            i++;
+
+            j--;
+
+        }
+
+    }
+
 public:
-    void nextPermutation(vector<int>& nums) {
-        int i,n=nums.size();
-        for(i=n-1;i>0;i--)
-        {
-            if(nums[i]>nums[i-1])
-                break;
-        }
-        if(i==0)
-        sort(nums.begin(),nums.end());
-        else
-        {
-            int j;
-           for(j=n-1;j>i-1;j--) 
-           {
-               if(nums[i-1]<nums[j])
-                   break;
-           }
-          swap(nums[i-1],nums[j]);
-          reverse(nums,i,n-1);
-        }
-        //return nums;
-    }
+
+    void nextPermutation(vector<int>& nums) {
+
+        int i,n=nums.size();
+
+        for(i=n-1;i>0;i--)
+
+        {
+
+            if(nums[i]>nums[i-1])
+
+                break;
+
+        }
+
+        if(i==0)
+
+        sort(nums.begin(),nums.end());
+
+        else
+
+        {
+
+            int j;
+
+           for(j=n-1;j>i-1;j--) 
+
+           {
+
+               if(nums[i-1]<nums[j])
+
+                   break;
+
+           }
+
+          swap(nums[i-1],nums[j]);
+
+          reverse(nums,i,n-1);
+
+        }
+
+        //return nums;
+
+    }
+
 };
